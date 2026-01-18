@@ -1,7 +1,41 @@
-<!-- register.html -->
-<div class="auth">
-  <h2>Đăng ký</h2>
-  <input placeholder="Tài khoản">
-  <input type="password" placeholder="Mật khẩu">
-  <button>Tạo tài khoản</button>
-</div>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Ký Tài Khoản</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-box">
+        <h2>Đăng Ký</h2>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Tên đăng nhập" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Mật khẩu" required>
+            <button type="submit">Đăng Ký</button>
+        </form>
+        <p>Đã có tài khoản? <a href="login.html">Đăng nhập tại đây</a></p>
+    </div>
+
+    <script>
+        const registerForm = document.getElementById('registerForm');
+
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Tạo đối tượng user
+            const userData = { username, email, password };
+
+            // Lưu vào localStorage với key là email (để không bị trùng)
+            localStorage.setItem(email, JSON.stringify(userData));
+
+            alert('Đăng ký thành công! Đang chuyển đến trang đăng nhập...');
+            window.location.href = 'login.html'; // Chuyển hướng trang
+        });
+    </script>
+</body>
+</html>

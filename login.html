@@ -1,7 +1,46 @@
-<!-- login.html -->
-<div class="auth">
-  <h2>Đăng nhập</h2>
-  <input placeholder="Tài khoản">
-  <input type="password" placeholder="Mật khẩu">
-  <button>Đăng nhập</button>
-</div>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-box">
+        <h2>Đăng Nhập</h2>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Mật khẩu" required>
+            <button type="submit">Đăng Nhập</button>
+        </form>
+        <p>Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Lấy dữ liệu từ localStorage dựa trên email
+            const storedUser = localStorage.getItem(email);
+
+            if (storedUser) {
+                const userObj = JSON.parse(storedUser); // Chuyển chuỗi JSON ngược lại thành Object
+                
+                if (userObj.password === password) {
+                    alert('Đăng nhập thành công! Chào mừng ' + userObj.username);
+                    // window.location.href = 'dashboard.html'; // Chuyển đến trang chủ nếu có
+                } else {
+                    alert('Sai mật khẩu, vui lòng thử lại!');
+                }
+            } else {
+                alert('Tài khoản không tồn tại!');
+            }
+        });
+    </script>
+</body>
+</html>
