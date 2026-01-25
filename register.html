@@ -2,40 +2,26 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng Ký Tài Khoản</title>
+    <title>Đăng ký | MINIMAL.</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="auth-box">
-        <h2>Đăng Ký</h2>
-        <form id="registerForm">
-            <input type="text" id="username" placeholder="Tên đăng nhập" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Mật khẩu" required>
-            <button type="submit">Đăng Ký</button>
+<body class="auth-page">
+    <div class="auth-container">
+        <h2>Tạo tài khoản</h2>
+        <form class="auth-form active" onsubmit="handleAuth(event)">
+            <input type="text" placeholder="Họ và tên" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Mật khẩu" required>
+            <button type="submit" class="submit-btn">Đăng ký</button>
         </form>
-        <p>Đã có tài khoản? <a href="login.html">Đăng nhập tại đây</a></p>
+        <p class="auth-switch">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
     </div>
-
     <script>
-        const registerForm = document.getElementById('registerForm');
-
-        registerForm.addEventListener('submit', (e) => {
+        function handleAuth(e) {
             e.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            // Tạo đối tượng user
-            const userData = { username, email, password };
-
-            // Lưu vào localStorage với key là email (để không bị trùng)
-            localStorage.setItem(email, JSON.stringify(userData));
-
-            alert('Đăng ký thành công! Đang chuyển đến trang đăng nhập...');
-            window.location.href = 'login.html'; // Chuyển hướng trang
-        });
+            alert("Đăng ký thành công!");
+            window.location.href = "index.html"; // Tự động về trang chủ
+        }
     </script>
 </body>
 </html>

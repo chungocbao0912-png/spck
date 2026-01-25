@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>MINIMAL. | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">MINIMAL.</div>
+            <div class="header-right">
+                <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
+                <a href="login.html" class="login-trigger">Đăng nhập</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Minimalist Loft</h1>
+            <p>Thiết kế tinh tế cho không gian của bạn.</p>
+            <a href="#products" class="btn">Mua sắm ngay</a>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="product-grid" id="product-list"></div>
+    </section>
+
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <img id="modalImg" src="">
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalPrice" class="price"></p>
+                    <p id="modalDesc"></p>
+                    <button id="modalAddBtn" class="add-btn">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Giỏ hàng</h3>
+            <span onclick="toggleCart()" style="cursor:pointer; font-size: 24px;">&times;</span>
+        </div>
+        <div id="cart-items-list"></div>
+        <div class="cart-footer">
+            <div class="total">Tổng: <span id="cart-total">0đ</span></div>
+            <button class="checkout-btn">Thanh toán</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

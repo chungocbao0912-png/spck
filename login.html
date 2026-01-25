@@ -2,45 +2,25 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng Nhập</title>
+    <title>Đăng nhập | MINIMAL.</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="auth-box">
-        <h2>Đăng Nhập</h2>
-        <form id="loginForm">
-            <input type="email" id="loginEmail" placeholder="Email" required>
-            <input type="password" id="loginPassword" placeholder="Mật khẩu" required>
-            <button type="submit">Đăng Nhập</button>
+<body class="auth-page">
+    <div class="auth-container">
+        <h2>Đăng nhập</h2>
+        <form class="auth-form active" onsubmit="handleAuth(event)">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Mật khẩu" required>
+            <button type="submit" class="submit-btn">Đăng nhập</button>
         </form>
-        <p>Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+        <p class="auth-switch">Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
     </div>
-
     <script>
-        const loginForm = document.getElementById('loginForm');
-
-        loginForm.addEventListener('submit', (e) => {
+        function handleAuth(e) {
             e.preventDefault();
-
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-
-            // Lấy dữ liệu từ localStorage dựa trên email
-            const storedUser = localStorage.getItem(email);
-
-            if (storedUser) {
-                const userObj = JSON.parse(storedUser); // Chuyển chuỗi JSON ngược lại thành Object
-                
-                if (userObj.password === password) {
-                    alert('Đăng nhập thành công! Chào mừng ' + userObj.username);
-                    // window.location.href = 'dashboard.html'; // Chuyển đến trang chủ nếu có
-                } else {
-                    alert('Sai mật khẩu, vui lòng thử lại!');
-                }
-            } else {
-                alert('Tài khoản không tồn tại!');
-            }
-        });
+            alert("Đăng nhập thành công!");
+            window.location.href = "index.html"; // Tự động về trang chủ
+        }
     </script>
 </body>
 </html>
