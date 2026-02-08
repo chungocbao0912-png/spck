@@ -2,59 +2,60 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>MINIMAL. | Home</title>
+    <title>MINIMAL. | Luxury Furniture</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">MINIMAL.</div>
-            <div class="header-right">
-                <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
-                <a href="login.html" class="login-trigger">Đăng nhập</a>
-            </div>
-        </nav>
-    </header>
+    <header id="header-container"></header>
+    <nav class="nav-menu">
+        <li onclick="filterCategory('all')">Tất cả</li>
+        <li onclick="filterCategory('ghế')">Ghế</li>
+        <li onclick="filterCategory('bàn')">Bàn</li>
+        <li onclick="filterCategory('kệ')">Kệ</li>
+        <li onclick="filterCategory('tủ')">Tủ</li>
+    </nav>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Minimalist Loft</h1>
-            <p>Thiết kế tinh tế cho không gian của bạn.</p>
-            <a href="#products" class="btn">Mua sắm ngay</a>
-        </div>
+        <div class="hero-content"><h1>The Art of Living</h1><p>Premium Collection 2026</p></div>
     </section>
 
-    <section class="products" id="products">
+    <section class="products">
+        <div class="section-title" style="text-align:center; margin-bottom:50px;"><h2 id="main-title">Sản Phẩm Phổ Biến</h2></div>
         <div class="product-grid" id="product-list"></div>
     </section>
 
-    <div class="modal" id="productModal">
+    <div id="productModal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div class="modal-body">
-                <img id="modalImg" src="">
-                <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <p id="modalPrice" class="price"></p>
-                    <p id="modalDesc"></p>
-                    <button id="modalAddBtn" class="add-btn">Thêm vào giỏ hàng</button>
-                </div>
+            <span onclick="closeModal()" style="position:absolute; top:20px; right:25px; cursor:pointer; font-size:35px;">&times;</span>
+            <img id="modalImg" src="" style="width:50%; height:450px; object-fit:cover;">
+            <div style="flex:1;">
+                <h2 id="modalTitle" style="font-family:'Playfair Display'; font-size:32px; margin-bottom:20px;"></h2>
+                <p id="modalPrice" style="color:#c19a6b; font-size:26px; font-weight:bold; margin-bottom:20px;"></p>
+                <p id="modalDesc" style="color:#777; line-height:1.6; margin-bottom:30px;"></p>
+                <button id="modalAddBtn" class="buy-btn">THÊM VÀO GIỎ HÀNG</button>
             </div>
         </div>
     </div>
 
     <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Giỏ hàng</h3>
-            <span onclick="toggleCart()" style="cursor:pointer; font-size: 24px;">&times;</span>
-        </div>
-        <div id="cart-items-list"></div>
-        <div class="cart-footer">
-            <div class="total">Tổng: <span id="cart-total">0đ</span></div>
-            <button class="checkout-btn">Thanh toán</button>
+        <h2 style="font-family:'Playfair Display'; margin-bottom:30px;">Túi Đồ Của Bạn</h2>
+        <div id="cart-items-container" style="flex:1; overflow-y:auto;"></div>
+        <div style="border-top:1px solid #eee; padding-top:20px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-weight:600;">
+                <span>Tổng tiền:</span> <span id="cart-total-price">0đ</span>
+            </div>
+            <button class="buy-btn" style="background:#c19a6b">THANH TOÁN</button>
+            <button class="buy-btn" style="background:#f4f4f4; color:#333; margin-top:10px;" onclick="toggleCart(false)">ĐÓNG</button>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col"><h4>MINIMAL.</h4><p>Nâng tầm không gian sống.</p></div>
+            <div class="footer-col"><h4>LIÊN HỆ</h4><p>Hotline: 1900 1234</p><p>Email: info@minimal.vn</p></div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

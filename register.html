@@ -2,26 +2,20 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng ký | MINIMAL.</title>
     <link rel="stylesheet" href="style.css">
+    <title>Đăng ký | MINIMAL.</title>
 </head>
 <body class="auth-page">
-    <div class="auth-container">
-        <h2>Tạo tài khoản</h2>
-        <form class="auth-form active" onsubmit="handleAuth(event)">
-            <input type="text" placeholder="Họ và tên" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Mật khẩu" required>
-            <button type="submit" class="submit-btn">Đăng ký</button>
+    <div class="auth-box">
+        <h2>ĐĂNG KÝ</h2>
+        <form onsubmit="event.preventDefault(); alert('Đăng ký thành công!'); location.href='login.html'">
+            <input type="text" class="auth-input" placeholder="Họ và tên" required>
+            <input type="email" class="auth-input" placeholder="Email" required>
+            <input type="password" class="auth-input" placeholder="Mật khẩu" required>
+            <input type="password" class="auth-input" placeholder="Xác nhận mật khẩu" required>
+            <button type="submit" class="buy-btn">TẠO TÀI KHOẢN</button>
         </form>
-        <p class="auth-switch">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+        <p style="margin-top:25px; font-size:14px; color:#666;">Đã có tài khoản? <a href="login.html" style="color:#c19a6b; text-decoration:none; font-weight:600;">Đăng nhập</a></p>
     </div>
-    <script>
-        function handleAuth(e) {
-            e.preventDefault();
-            alert("Đăng ký thành công!");
-            window.location.href = "index.html"; // Tự động về trang chủ
-        }
-    </script>
 </body>
 </html>

@@ -2,24 +2,24 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng nhập | MINIMAL.</title>
     <link rel="stylesheet" href="style.css">
+    <title>Đăng nhập | MINIMAL.</title>
 </head>
 <body class="auth-page">
-    <div class="auth-container">
-        <h2>Đăng nhập</h2>
-        <form class="auth-form active" onsubmit="handleAuth(event)">
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Mật khẩu" required>
-            <button type="submit" class="submit-btn">Đăng nhập</button>
+    <div class="auth-box">
+        <h2>ĐĂNG NHẬP</h2>
+        <form onsubmit="handleLogin(event)">
+            <input type="email" id="email" class="auth-input" placeholder="Email của bạn" required>
+            <input type="password" class="auth-input" placeholder="Mật khẩu" required>
+            <button type="submit" class="buy-btn">VÀO CỬA HÀNG</button>
         </form>
-        <p class="auth-switch">Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+        <p style="margin-top:25px; font-size:14px; color:#666;">Chưa có tài khoản? <a href="register.html" style="color:#c19a6b; text-decoration:none; font-weight:600;">Đăng ký ngay</a></p>
     </div>
     <script>
-        function handleAuth(e) {
+        function handleLogin(e) {
             e.preventDefault();
-            alert("Đăng nhập thành công!");
-            window.location.href = "index.html"; // Tự động về trang chủ
+            localStorage.setItem('user', document.getElementById('email').value.split('@')[0]);
+            location.href = 'index.html';
         }
     </script>
 </body>
